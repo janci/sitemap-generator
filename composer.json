@@ -1,0 +1,22 @@
+{
+    "name": "janci/sitemap-generator",
+    "description": "Generator to sitemap with scanner website based on html elements a.",
+    "minimum-stability": "dev",
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Ing. Jan Svantner",
+            "email": "posta.janci@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {"SitemapGenerator\\": "src/"}
+    },
+    "require": {
+        "amstaff/simplehtmldom": "dev-master",
+        "thepixeldeveloper/sitemap": "2.0.0"
+    },
+    "require-dev": {
+        "nette/tester": "v0.9.4"
+    }
+}
