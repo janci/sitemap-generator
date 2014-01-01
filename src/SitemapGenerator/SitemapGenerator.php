@@ -10,10 +10,8 @@
 
 namespace SitemapGenerator;
 
-
-use SimpleHtmlDom\simple_html_dom_node;
-use SimpleHtmlDom\SimpleHtmlDom;
 use SitemapGenerator\Utils\Strings;
+use Sunra\PhpSimple\HtmlDomParser;
 
 require_once("functions.php");
 
@@ -90,9 +88,11 @@ class SitemapGenerator {
         if(!$site->validate()) return;
 
         $content = $site->getContent($site);
-        $simpleDom = new SimpleHtmlDom($content);
 
-        /** @var simple_html_dom_node[] $links */
+        /** @var \simple_html_dom $simpleDom */
+        $simpleDom = HtmlDomParser::str_get_html($content);
+
+        /** @var \simple_html_dom_node[] $links */
         $links = $simpleDom->find("a");
         foreach($links as $link){
             $siteUrl = $link->getAttribute("href");

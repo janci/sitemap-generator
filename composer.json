@@ -13,7 +13,7 @@
         "psr-0": {"SitemapGenerator\\": "src/"}
     },
     "require": {
-        "amstaff/simplehtmldom": "dev-master",
+        "sunra/php-simple-html-dom-parser": "1.5.0",
         "thepixeldeveloper/sitemap": "2.0.0"
     },
     "require-dev": {
