@@ -59,4 +59,6 @@ class SitemapFormatValidateTest extends TestCase {
         $test = $doc->schemaValidate(__DIR__ . DIRECTORY_SEPARATOR . "schema" . DIRECTORY_SEPARATOR . "sitemap.xsd");
         Assert::true($test);
     }
-} 
+}
+
+id(new SitemapFormatValidateTest())->run();

@@ -148,13 +148,12 @@ class SitemapGenerator {
         foreach($urls as $url){
             $entry = new \Sitemap\Sitemap\SitemapEntry;
             $entry->setLocation($url);
-            $entry->setLastMod(time());
+            //$entry->setLastMod(time());
             $collection->addSitemap($entry);
         }
 
         // There's some different formatters available.
         $collection->setFormatter(new \Sitemap\Formatter\XML\URLSet);
-        $collection->setFormatter(new \Sitemap\Formatter\XML\SitemapIndex);
 
         return $collection->output();
     }
