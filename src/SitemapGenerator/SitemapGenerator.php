@@ -112,6 +112,8 @@ class SitemapGenerator {
             $siteUrl = $link->getAttribute("href");
 
             if(!$siteUrl) continue;
+
+            $siteUrl = str_replace($startPage, '', $siteUrl);
             if(!Strings::startsWith($siteUrl, '/')) continue;
 
             $siteUrl = str_replace($site->getUrl(), "", $siteUrl);
