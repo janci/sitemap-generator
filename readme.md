@@ -5,7 +5,10 @@ Sitemap Generator is the php library to generate sitemap.xml from page link. Sca
  elements on the page and create links map from their. Scanning can be use only for one page, when will
  gets links from the input link. Second option is used scanner recursive. For this option scanner will
  scan all searched links on website. Accepted links to post scanning must be start with "/" or with domain
- name, what is equals to input website domain.
+ name, what is equal to input website domain.
+
+Scanning process can run several minutes for bigger pages or smaller connect. So best practice is run generation
+process from command line and not use by web server.
 
 
 Installation
@@ -50,17 +53,17 @@ parameter of method SitemapGenerator::scanSite to false:
 ```php
     $siteMap = new SitemapGenerator();
     $siteMap->scanSite(new UrlScanDriver("http://test.sk/"), false);
-    $urls = $siteMap->getFoundUrls();
+    ...
 ```
 
-For show progress information can be use handler. Handler must be register before call method scanSite:
+For show progress information can be use handler. Handler must be register before call scanSite method:
 ```php
     $siteMap = new SitemapGenerator();
     $siteMap->onScanSite[] = function($siteMapGenerator, $scanDriver) {
         echo "{$siteMapGenerator->->getProgressStatus()}%\n";
     };
     $siteMap->scanSite(new UrlScanDriver("http://test.sk/"));
-    $urls = $siteMap->getFoundUrls();
+    ...
 ```
 
 Thats' all!
