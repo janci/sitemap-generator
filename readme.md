@@ -6,7 +6,7 @@ Sitemap Generator is PHP library to generate sitemap.xml from page link. Scan pr
  gets links from the input link. Second  option is using scanner to scan recursively. For this option scanner will
  scan all found links on website. Scanner accepts links starting with "/" or with domain name (website URL).
 
-Scanning process can run several minutes for bigger pages or smaller connect. The best practise is to run
+Scanning process takes several minutes to build sitemap for bigger pages or with slower internet connection. The best practise is to run
 script from command line (CLI), not from website using web server.
 
 
