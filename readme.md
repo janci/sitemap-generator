@@ -1,14 +1,13 @@
 Sitemap Generator
 ===========================================================
 
-Sitemap Generator is the php library to generate sitemap.xml from page link. Scan process search a-href
- elements on the page and create links map from their. Scanning can be use only for one page, when will
- gets links from the input link. Second option is used scanner recursive. For this option scanner will
- scan all searched links on website. Accepted links to post scanning must be start with "/" or with domain
- name, what is equal to input website domain.
+Sitemap Generator is PHP library to generate sitemap.xml from page link. Scan process searches a-href
+ elements on the page and creates map with links (without links to external pages). Scanning can be used only for one page, when will
+ gets links from the input link. Second  option is using scanner to scan recursively. For this option scanner will
+ scan all found links on website. Scanner accepts links starting with "/" or with domain name (website URL).
 
-Scanning process can run several minutes for bigger pages or smaller connect. So best practice is run generation
-process in command line (CLI) and not use by web server.
+Scanning process can run several minutes for bigger pages or smaller connect. The best practise is to run
+script from command line (CLI), not from website using web server.
 
 
 Installation
@@ -23,10 +22,10 @@ php composer.phar require janci/sitemap-generator
 Sitemap Generator requires PHP 5.3.0 or later.
 
 
-Examples usage
+Usage examples
 -----------------
 
-Can be use for only gets all links on the website:
+To find all links on the website, use:
 
 ```php
     $siteMap = new SitemapGenerator();
@@ -34,8 +33,7 @@ Can be use for only gets all links on the website:
     $urls = $siteMap->getFoundUrls();
 ```
 
-For gets sitemap.xml content:
-
+To get result as sitemap.xml, use:
 
 ```php
     $siteMap = new SitemapGenerator();
@@ -45,8 +43,8 @@ For gets sitemap.xml content:
     file_put_contents('sitemap.xml', $sitemapXML);
 ```
 
-Previous two examples use recursive scanning (default). For single page scan is required sets second
-parameter of method SitemapGenerator::scanSite to false:
+Previous two examples use recursive scanning (default). For single page scan is required to set "false" as second
+parameter of method SitemapGenerator::scanSite:
 
 
 ```php
@@ -55,11 +53,12 @@ parameter of method SitemapGenerator::scanSite to false:
     ...
 ```
 
-For show progress information can be use handler. Handler must be register before call scanSite method:
+To show progress information can be used handler function. Handler must be registered before calling scanSite method.
+
 ```php
     $siteMap = new SitemapGenerator();
     $siteMap->onScanSite[] = function($siteMapGenerator, $scanDriver) {
-        echo "{$siteMapGenerator->->getProgressStatus()}%\n";
+        echo "{$siteMapGenerator->getProgressStatus()}%\n";
     };
     $siteMap->scanSite(new UrlScanDriver("http://www.example.com/"));
     ...
