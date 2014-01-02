@@ -31,7 +31,7 @@ Can be use for only gets all links on the website:
 
 ```php
     $siteMap = new SitemapGenerator();
-    $siteMap->scanSite(new UrlScanDriver("http://test.sk/"));
+    $siteMap->scanSite(new UrlScanDriver("http://www.example.com/"));
     $urls = $siteMap->getFoundUrls();
 ```
 
@@ -40,7 +40,7 @@ For gets sitemap.xml content:
 
 ```php
     $siteMap = new SitemapGenerator();
-    $siteMap->scanSite(new UrlScanDriver("http://test.sk/"));
+    $siteMap->scanSite(new UrlScanDriver("http://www.example.com/"));
     $sitemapXML = $siteMap->getSitemapContent();
 
     file_put_contents('sitemap.xml', $sitemapXML);
@@ -52,7 +52,7 @@ parameter of method SitemapGenerator::scanSite to false:
 
 ```php
     $siteMap = new SitemapGenerator();
-    $siteMap->scanSite(new UrlScanDriver("http://test.sk/"), false);
+    $siteMap->scanSite(new UrlScanDriver("http://www.example.com/"), false);
     ...
 ```
 
@@ -62,7 +62,7 @@ For show progress information can be use handler. Handler must be register befor
     $siteMap->onScanSite[] = function($siteMapGenerator, $scanDriver) {
         echo "{$siteMapGenerator->->getProgressStatus()}%\n";
     };
-    $siteMap->scanSite(new UrlScanDriver("http://test.sk/"));
+    $siteMap->scanSite(new UrlScanDriver("http://www.example.com/"));
     ...
 ```
 
