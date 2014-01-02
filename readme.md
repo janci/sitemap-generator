@@ -8,7 +8,7 @@ Sitemap Generator is the php library to generate sitemap.xml from page link. Sca
  name, what is equal to input website domain.
 
 Scanning process can run several minutes for bigger pages or smaller connect. So best practice is run generation
-process from command line and not use by web server.
+process in command line (CLI) and not use by web server.
 
 
 Installation
