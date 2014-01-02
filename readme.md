@@ -14,8 +14,7 @@ process from command line and not use by web server.
 Installation
 ------------
 
-The best way how to install is to [download a latest package](https://github.com/janci/sitemap-generator/releases)
-or use a Composer:
+The best way how to install Sitemap Generator is using Composer:
 
 ```
 php composer.phar require janci/sitemap-generator
