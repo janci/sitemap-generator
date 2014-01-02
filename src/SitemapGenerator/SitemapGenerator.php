@@ -56,19 +56,33 @@ class SitemapGenerator {
         $startTime = microtime(true);
 
         $startPage = rtrim( $this->getDomainLink($site->getUrl()), "/" );
-        foreach($this->onScanSite as $fn) $fn($this, $site);
         $this->scanUrl($site, $startPage);
 
         if($recursively) {
+            foreach($this->onScanSite as $fn) $fn($this, $site);
             while(!empty($this->unscannedUrls)) {
                 $scanUrl = array_shift($this->unscannedUrls);
-                foreach($this->onScanSite as $fn) $fn($this, $scanUrl);
                 $this->scanUrl($scanUrl, $startPage);
+                foreach($this->onScanSite as $fn) $fn($this, $scanUrl);
             }
         } else {
             $this->scannedUrls = $this->scannedUrls + $this->unscannedUrls;
+            foreach($this->onScanSite as $fn) $fn($this, $site);
         }
         $this->scanTime = microtime(true)-$startTime;
+    }
+
+
+    /**
+     * Returns progress of scanning in percentage (0-100) round to two decimals.
+     * @return float
+     */
+    public function getProgressStatus(){
+        $scannedCount = count($this->scannedUrls);
+        $allCount = count($this->unscannedUrls + $this->scannedUrls);
+
+        if($allCount == 0) return "100.00";
+        return number_format( min(1, $scannedCount / $allCount )*100, 2);
     }
 
     /**

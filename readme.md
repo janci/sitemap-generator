@@ -21,7 +21,7 @@ php composer.phar require janci/sitemap-generator
 Sitemap Generator requires PHP 5.3.0 or later.
 
 
-Examples of usage
+Examples usage
 -----------------
 
 Can be use for only gets all links on the website:
@@ -50,6 +50,16 @@ parameter of method SitemapGenerator::scanSite to false:
 ```php
     $siteMap = new SitemapGenerator();
     $siteMap->scanSite(new UrlScanDriver("http://test.sk/"), false);
+    $urls = $siteMap->getFoundUrls();
+```
+
+For show progress information can be use handler. Handler must be register before call method scanSite:
+```php
+    $siteMap = new SitemapGenerator();
+    $siteMap->onScanSite[] = function($siteMapGenerator, $scanDriver) {
+        echo "{$siteMapGenerator->->getProgressStatus()}%\n";
+    };
+    $siteMap->scanSite(new UrlScanDriver("http://test.sk/"));
     $urls = $siteMap->getFoundUrls();
 ```
 
