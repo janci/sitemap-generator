@@ -1,6 +1,6 @@
 {
     "name": "janci/sitemap-generator",
-    "description": "Generator to sitemap with scanner website based on html elements a.",
+    "description": "Sitemap Generator is PHP library to create sitemap.xml file on base html elements a-href in website.",
     "keywords": ["sitemap", "sitemap.xml", "generator", "scanner", "builder"],
     "license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
     "authors": [
