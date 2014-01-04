@@ -2,7 +2,7 @@
     "name": "janci/sitemap-generator",
     "description": "Generator to sitemap with scanner website based on html elements a.",
     "minimum-stability": "dev",
-    "license": "GPL-3.0+",
+    "license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
     "authors": [
         {
             "name": "Ing. Jan Svantner",
