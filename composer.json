@@ -9,6 +9,10 @@
             "email": "posta.janci@gmail.com"
         }
     ],
+    "support": {
+        "email": "posta.janci@gmail.com",
+        "issues": "https://github.com/janci/sitemap-generator/issues"
+    },
     "autoload": {
         "psr-0": {"SitemapGenerator\\": "src/"}
     },
